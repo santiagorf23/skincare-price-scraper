@@ -1,0 +1,21 @@
+# Archivos generados
+data/*.xlsx
+data/*.csv
+
+# Entorno virtual
+venv/
+env/
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

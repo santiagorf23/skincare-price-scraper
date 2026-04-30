@@ -80,6 +80,6 @@ python scraper.py
 
 ## Autor
 
-Desarrollado por **[Tu Nombre]** como parte de una ruta de aprendizaje en Python con enfoque en automatización y generación de ingresos.
+Desarrollado por **Santiago Ramírez Flórez** como parte de una ruta de aprendizaje en Python con enfoque en automatización y generación de ingresos.
 
 [GitHub](https://github.com/santiagorf23) · [LinkedIn](https://www.linkedin.com/in/santiagorf23/)

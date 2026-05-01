@@ -3,9 +3,10 @@ data/*.xlsx
 data/*.csv
 
 # Entorno virtual
+.venv
 venv/
 env/
-.env
+env
 
 # Python
 __pycache__/

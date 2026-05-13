@@ -40,11 +40,12 @@ def extraer_productos(html):
     soup = BeautifulSoup(html, "html.parser") # convierte el texto HTML crudo en un objeto navegable. A partir de aquí puedes hacer preguntas sobre la estructura.
     productos = []
 
-    articulos = soup.find_all("article", class_= "product_pod") #  le preguntas: "encuéntrame todos los elementos article que tengan la clase product_pod". Cada uno de esos es un producto en la página.
+    articulos = soup.find_all("li", class_= "product") #  le preguntas: "encuéntrame todos los elementos article que tengan la clase product_pod". Cada uno de esos es un producto en la página.
+    # articulos = soup.find_all("li", class_=lambda c: c and "product" in c.split()) # Esto le dice a BeautifulSoup: "dame todos los li que entre sus clases tengan la palabra product", sin importar cuántas otras clases tenga cada uno.
 
     for articulo in articulos: # recorres cada producto uno por uno.
-        nombre = articulo.find("h3").find("a")["title"] # dentro del artículo, buscas el h3, luego el a que está dentro, y lees su atributo title. Ahí está el nombre completo del producto.
-        precio = articulo.find("p", class_= "price_color").text.strip() # buscas el párrafo con clase price_color y lees su texto. .strip() elimina espacios o saltos de línea sobrantes.
+        nombre = articulo.find("a", class_="ast-loop-product__link").find("h2", class_="woocommerce-loop-product__title").text.strip() # dentro del artículo, buscas el h3, luego el a que está dentro, y lees su atributo title. Ahí está el nombre completo del producto.
+        precio = articulo.find("span", class_= "price").find("bdi").text.strip() # buscas el párrafo con clase price_color y lees su texto. .strip() elimina espacios o saltos de línea sobrantes.
 
         productos.append({ # cada producto lo guardas como un diccionario con nombre y precio, y lo agregas a la lista.
             "nombre": nombre,
